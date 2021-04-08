@@ -20,5 +20,5 @@ cd ..
 
 ## Testing on KITTI
 <p align = "center">
-![depth_prediction](monoDepth.gif)
+<img src ="https://github.com/mnshtxp/Proj.2_visualDet3D/blob/main/docs/monoDepth.gif?raw=true">
 </p>
