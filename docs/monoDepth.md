@@ -19,4 +19,4 @@ cd ..
 ```
 
 ## Testing on KITTI
-![depth_prediction](depth_prediction.gif)
+![depth_prediction](monoDepth.gif)
