@@ -27,5 +27,7 @@ cd ..
 ./launcher/eval.sh --config/$CONFIG_FILE.py 0 $CHECKPOINT_PATH validation/test
 ```
 
-## Testing on Lyft dataset without retraining
-![mono3dgif](mono3d_lyft.gif)
+## Testing
+<p align = "center">
+<img src = "https://github.com/mnshtxp/Proj.2_visualDet3D/blob/main/docs/mono3d.gif?raw=true">
+</p>
