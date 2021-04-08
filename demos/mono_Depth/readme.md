@@ -1,5 +1,7 @@
 # MonoDepth Prediction
 
+<img src = "https://github.com/mnshtxp/Proj.2_visualDet3D/blob/main/docs/monoDepth.png">
+
 ## Training Schedule
 
 ```bash
