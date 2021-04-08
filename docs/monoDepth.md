@@ -1,5 +1,7 @@
 # MonoDepth Prediction
 
+![monoDepth](monoDepth.png)
+
 ## Training Schedule
 
 ```bash
