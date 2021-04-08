@@ -13,11 +13,14 @@ cp monodepth_config.py $CONFIG_FILE.py
 nano $CONFIG_FILE.py
 cd ..
 
+## Precompute depth info
+./launchers/det_precompute_mono.sh --config/$CONFIG_FILE.py
+
 ## train the model
-./launcher/train.sh  --config/$CONFIG_FILE.py 0 $experiment_name # validation goes along
+./launchers/train.sh  --config/$CONFIG_FILE.py 0 $experiment_name # validation goes along
 
 ## produce validation/test result
-./launcher/eval.sh --config/$CONFIG_FILE.py 0 $CHECKPOINT_PATH validation/test
+./launchers/eval.sh --config/$CONFIG_FILE.py 0 $CHECKPOINT_PATH validation/test
 ```
 
 ## Testing on KITTI
