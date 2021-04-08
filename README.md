@@ -122,8 +122,6 @@ You can download pretrained models here:
 
 ## 9. Results
 
-Our model achieves the following performance on :
-
 <img src = "https://github.com/mnshtxp/Proj2_visualDet3D/blob/main/docs/result.gif?raw=true">
 
 ## 10. Related Codes
