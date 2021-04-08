@@ -1,6 +1,6 @@
 # Mono3D
 
-![mono3d_image](mono3d.png)
+<img src = "https://github.com/mnshtxp/Proj.2_visualDet3D/blob/main/docs/mono3d.png?raw=true">
 
 ## Training Schedule
 
