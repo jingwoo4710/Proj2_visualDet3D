@@ -51,7 +51,7 @@ Please check the corresponding task:
 - Depth Prediction[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](demos/mono_Depth/Final_Visualize_test_3d_MONO_depth.ipynb)
 
 ### 5. 1 Mono3D 
-#### Data
+#### • Data
 
 Download the list below:
 |Name|Description|
@@ -62,7 +62,7 @@ Download the list below:
 |labels_2| Download training labels of object data set (5 MB)|
 
 
-#### Config and Path setup. 
+#### • Config and Path setup
 
 Please modify the path and other parameters in **config/\*.py**. **config/\*_example** files are templates.
 
@@ -78,7 +78,7 @@ The content of the selected config file will be recorded in tensorboard at the b
 4. cfg.path.project_path: Path to the workdirs of the projects (will have temp_outputs, log, checkpoints)
 
 ### 5. 2 Depth Prediction
-#### Data
+#### • Data
 
 Download the list below:
 |Name|Description|
@@ -88,7 +88,7 @@ Download the list below:
 |data_depth_selection|Download manually selected validation and test data sets (5 GB)|
 
 
-#### Config and Path setup. 
+#### • Config and Path setup
 
 Please modify the path and other parameters in **config/\*.py**. **config/\*_example** files are templates.
 
