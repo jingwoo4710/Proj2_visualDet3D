@@ -19,4 +19,6 @@ cd ..
 ```
 
 ## Testing on KITTI
+<p align = "center">
 ![depth_prediction](monoDepth.gif)
+</p>
