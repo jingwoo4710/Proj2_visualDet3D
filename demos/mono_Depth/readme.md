@@ -1,6 +1,6 @@
 # MonoDepth Prediction
 
-<img src = "https://github.com/mnshtxp/Proj.2_visualDet3D/blob/main/docs/monoDepth.png">
+<img src = "https://github.com/mnshtxp/Proj2_visualDet3D/blob/main/docs/monoDepth.png">
 
 ## Training Schedule
 
@@ -25,5 +25,5 @@ cd ..
 
 ## Testing on KITTI
 <p align = "center">
-<img src ="https://github.com/mnshtxp/Proj.2_visualDet3D/blob/main/docs/monoDepth.gif?raw=true">
+<img src ="https://github.com/mnshtxp/Proj2_visualDet3D/blob/main/docs/monoDepth.gif?raw=true">
 </p>
