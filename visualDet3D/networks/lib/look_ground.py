@@ -9,32 +9,45 @@ import numpy as np
 """
 
 class LookGround(nn.Module):
-    """Some Information about LookGround"""
+    """ Some Information about LookGround (GAC) """
     def __init__(self, input_features, baseline=0.54, relative_elevation=1.65):
+        
+        # parent Class __init__ method
         super(LookGround, self).__init__()
+        
+        # disparity create
         self.disp_create = nn.Sequential(
             nn.Conv2d(input_features, 1, 3, padding=1),
             nn.Tanh(),
         )
+        
+        # Conv2d Layer
         self.extract = nn.Conv2d(1 + input_features, input_features, 1)
+        
+        # virtual stereo setup baseline B = 0.54m
         self.baseline = baseline
+        
+        # expected elevation of camera from the ground (1.65 meters)
         self.relative_elevation = relative_elevation
+        
+        # observation angle
         self.alpha = nn.Parameter(torch.tensor([0.0], dtype=torch.float32))
 
     def forward(self, inputs):
-
+        # input feature map
         x = inputs['features']
         P2 = inputs['P2']
-
+         
+        # downsample to 16.0
         P2 = P2.clone()
-        P2[:, 0:2] /= 16.0 # downsample to 16.0
-
+        P2[:, 0:2] /= 16.0 
+        
         disp = self.disp_create(x)
         disp = 0.1 * (0.05 * disp + 0.95 * disp.detach())
 
         batch_size, _, height, width = x.size()
 
-        # Create Disparity Map
+        # create Disparity Map
         h, w = x.shape[2], x.shape[3]
         x_range = np.arange(h, dtype=np.float32)
         y_range = np.arange(w, dtype=np.float32)
@@ -45,16 +58,17 @@ class LookGround(nn.Module):
         cy =  P2[:, 1:2, 2:3] #[B, 1, 1]
         Ty =  P2[:, 1:2, 3:4] #[B, 1, 1]
         
+        # compute disparity
         disparity = fy * self.baseline  * (yy_grid - cy) / (torch.abs(fy * self.relative_elevation + Ty) + 1e-10)
         disparity = F.relu(disparity)
 
-        # Original coordinates of pixels
+        # original coordinates of pixels
         x_base = torch.linspace(-1, 1, width).repeat(batch_size,
                     height, 1).type_as(x)
         y_base = torch.linspace(-1, 1, height).repeat(batch_size,
                     width, 1).transpose(1, 2).type_as(x)
 
-        # Apply shift in Y direction
+        # apply shift in Y direction
         h_mean = 1.535
         y_shifts_base = F.relu(
             h_mean * (yy_grid - cy) / (2 * (self.relative_elevation - 0.5 * h_mean))
